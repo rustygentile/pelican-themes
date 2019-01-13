@@ -2,7 +2,7 @@
       <nav class="widget">
       <h3>Site</h3>
         <ul>
-          <li><a href="{{ SITEURL }}">Home</a></li>
+          <li><a href="{{ SITEURL }}/">Home</a></li>
           <li><a href="{{ SITEURL }}/archives.html">Archives</a></li>
           <li><a href="{{ SITEURL }}/tags.html">Keywords</a></li>
         {% if MENUITEMS %}
@@ -20,7 +20,7 @@
 
      {% if categories %}
       <nav class="widget">
-        <h3>Catégories</h3>
+        <h3>Categories</h3>
         <ul>
         {% for cat, null in categories %}
           <li><a href="{{ SITEURL }}/{{ cat.url|e }}">{{ cat }}</a></li>
@@ -36,10 +36,20 @@
         {% for url, name in SOCIAL %}
           <li><a href="{{ url|e }}">{{ name }}</a></li>
         {% endfor %}
-          <li><a href="{{ SITEURL }}/{{ FEED_ATOM }}" rel="alternate">Flux Atom</a></li>
         {% if FEED_RSS %}
           <li><a href="{{ SITEURL }}/{{ FEED_RSS }}" rel="alternate">Flux RSS</a></li>
         {% endif %}
+        </ul>
+      </nav>
+      {% endif %}
+	  
+	  {% if LINKS %}
+      <nav class="widget">
+        <h3>Links</h3>
+        <ul>
+        {% for url, name in LINKS %}
+          <li><a href="{{ url|e }}">{{ name }}</a></li>
+        {% endfor %}
         </ul>
       </nav>
       {% endif %}
